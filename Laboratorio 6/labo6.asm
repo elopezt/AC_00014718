@@ -13,9 +13,9 @@ org 100h
     clave DB "00014718"
     
     ingreso DB "Contraseña para ingresar: ", "$"
-    ingresoDenegado DB "Incorrecto", "$"
     ingresoEfectivo DB "Bienvenido", "$"
-    input times 5 DB " "
+    ingresoDenegado DB "Incorrecto", "$"
+    input times 20 DB " "
 
     awanta:
         mov AH,01h
@@ -44,10 +44,10 @@ org 100h
         je  bienvenido
         jne incorrecto
         ret
-    incorrecto:
-        mov     DX,ingresoDenegado
-        ret
     bienvenido:
         mov     DX,ingresoEfectivo
+        ret
+    incorrecto:
+        mov     DX,ingresoDenegado
         ret
     
